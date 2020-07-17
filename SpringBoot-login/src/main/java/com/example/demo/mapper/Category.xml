@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.demo.mapper.CategoryMapper">
+	<select id="findAll" resultType="Category">
+		select * from user
+	</select>
+	<select id="findByName" resultType="Category">
+		SELECT * FROM user WHERE name = #{name}
+	</select>
+	<select id="findByUsername" resultType="Category">
+		SELECT * FROM user WHERE username = #{username}
+	</select>
+	<select id="findById" resultType="Category">
+		SELECT * FROM user WHERE id = #{id}
+	</select>
+	<insert id="insert" parameterType="Category">
+		INSERT INTO user (username, password) VALUES (#{username}, #{password})
+	</insert>
+	<update id="update" parameterType="Category">
+		UPDATE user SET username=#{username},password=#{password},name=#{name},age=#{age} WHERE id=#{id}
+	</update>
+	<delete id="delete" parameterType="Category">
+		DELETE FROM user WHERE id =#{id}
+	</delete>
+</mapper>
