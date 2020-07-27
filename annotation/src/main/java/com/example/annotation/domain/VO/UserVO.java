@@ -21,18 +21,13 @@ public class UserVO {
     @Query(type = Query.Type.IN)
     private List<String> useSex;
 
-    private Integer useAge;
+    @Query(blurry = "use_name,use_id")
+    private String search;
 
-    private String useIdNo;
-
-    @Query(type = Query.Type.ORDER_BY_DASC)
+    @Query(type = Query.Type.ORDER_BY_DESC)
     private String[] orderDesc;
 
-    private String useEmail;
+    @Query(type = Query.Type.BETWEEN)
+    private List<LocalDate> createTime;
 
-    private LocalDate createTime;
-
-    private LocalDate modifyTime;
-
-    private String useState;
 }

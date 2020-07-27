@@ -118,10 +118,10 @@ public class QueryHelp {
                         case ORDER_BY_ASC:
                             String[] ascColumns = (String[]) val;
                             for (String column : ascColumns) {
-                                queryWrapper.orderByDesc(toSymbolCase(column));
+                                queryWrapper.orderByAsc(toSymbolCase(column));
                             }
                             break;
-                        case ORDER_BY_DASC:
+                        case ORDER_BY_DESC:
                             String[] dascColumns = (String[]) val;
                             for (String column : dascColumns) {
                                 queryWrapper.orderByDesc(toSymbolCase(column));
