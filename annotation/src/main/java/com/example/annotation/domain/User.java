@@ -1,15 +1,12 @@
 package com.example.annotation.domain;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
-
-import java.time.LocalDate;
-
+import com.baomidou.mybatisplus.annotation.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -37,12 +34,16 @@ public class User {
     @TableField(value = "USE_EMAIL")
     private String useEmail;
 
-    @TableField(value = "CREATE_TIME")
+    @JsonIgnore
+    @TableField(value = "CREATE_TIME", fill = FieldFill.INSERT)
     private LocalDate createTime;
 
-    @TableField(value = "MODIFY_TIME")
+    @JsonIgnore
+    @TableField(value = "MODIFY_TIME", fill = FieldFill.INSERT_UPDATE)
     private LocalDate modifyTime;
 
+    @JsonIgnore
     @TableField(value = "USE_STATE")
+    @Version
     private String useState;
 }

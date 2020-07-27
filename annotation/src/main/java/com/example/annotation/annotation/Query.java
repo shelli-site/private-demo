@@ -41,19 +41,19 @@ public @interface Query {
         , LESS_THAN_EQ
         // 大于等于
         , GREATER_THAN_EQ
-        // 包含
+        // 包含 修饰List
         , IN
         // 不等于
         , NOT_EQUAL
-        // between
+        // between 修饰List
         , BETWEEN
-        // 不为空
+        // 不为空 修饰Boolean
         , NOT_NULL
-        // 为空
+        // 为空 修饰Boolean
         , IS_NULL
-        // 默认升序排列
+        // 默认升序排列 修饰List
         , ORDER_BY_ASC
-        // 默认降序排列
+        // 默认降序排列 修饰List
         , ORDER_BY_DESC
     }
 

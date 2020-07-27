@@ -1,5 +1,6 @@
 package com.example.annotation.controller;
 
+import com.example.annotation.domain.User;
 import com.example.annotation.domain.VO.UserVO;
 import com.example.annotation.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class UserController {
     UserService userService;
 
     @GetMapping("/user")
-    public List getList(UserVO userVO) {
+    public List<User> getList(UserVO userVO) {
         return userService.getUsers(userVO);
     }
 }

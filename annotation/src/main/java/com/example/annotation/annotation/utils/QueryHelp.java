@@ -18,6 +18,7 @@ package com.example.annotation.annotation.utils;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.annotation.annotation.Query;
 import lombok.extern.slf4j.Slf4j;
@@ -36,7 +37,7 @@ import java.util.List;
 @SuppressWarnings({"unchecked", "all"})
 public class QueryHelp {
 
-    public static <T, Q> QueryWrapper<T> createQueryWra(Q query, Class<T> targetClass) {
+    public static <T, Q> Wrapper<T> createQueryWra(Q query, Class<T> targetClass) {
         QueryWrapper<T> queryWrapper = new QueryWrapper<T>();
         if (query == null) {
             return queryWrapper;
@@ -94,8 +95,9 @@ public class QueryHelp {
                             queryWrapper.likeRight(attributeName, value);
                             break;
                         case IN:
-                            if (CollUtil.isNotEmpty((Collection<Object>) val)) {
-                                queryWrapper.in(attributeName, (Collection<Object>) val);
+                            Collection<Object> collection = (Collection<Object>) val;
+                            if (CollUtil.isNotEmpty(collection)) {
+                                queryWrapper.in(attributeName, collection);
                             }
                             break;
                         case NOT_EQUAL:
@@ -109,7 +111,9 @@ public class QueryHelp {
                             break;
                         case BETWEEN:
                             List<Object> between = new ArrayList<>((List<Object>) val);
-                            queryWrapper.between(attributeName, between.get(0), between.get(1));
+                            if (CollUtil.isNotEmpty(between)) {
+                                queryWrapper.between(attributeName, between.get(0), between.get(1));
+                            }
                             break;
                         default:
                             break;
@@ -134,6 +138,7 @@ public class QueryHelp {
                 field.setAccessible(accessible);
             }
         } catch (Exception e) {
+            // 捕获类型转换异常
             log.error(e.getMessage(), e);
         }
         return queryWrapper;
@@ -144,8 +149,8 @@ public class QueryHelp {
 
     }
 
-    public static <Q> QueryWrapper<Q> createQueryWra(Q query) {
-        return (QueryWrapper<Q>) createQueryWra(query, query.getClass());
+    public static <Q> Wrapper<Q> createQueryWra(Q query) {
+        return (Wrapper<Q>) createQueryWra(query, query.getClass());
     }
 
     private static boolean isBlank(final CharSequence cs) {
