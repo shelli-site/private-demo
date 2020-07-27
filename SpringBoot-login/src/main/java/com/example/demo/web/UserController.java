@@ -14,15 +14,15 @@ import com.example.demo.pojo.NavList;
 
 @Controller
 public class UserController {
-	protected final Logger logger = LoggerFactory.getLogger(this.getClass());
+    protected final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-	@Autowired
-	NavListMapper navlistMapper;
+    @Autowired
+    NavListMapper navlistMapper;
 
-	@RequestMapping("/list")
-	public String list(ModelMap map) {
-		List<NavList> data = navlistMapper.findAll();
-		map.addAttribute("list", data);
-		return "user";
-	}
+    @RequestMapping("/list")
+    public String list(ModelMap map) {
+        List<NavList> data = navlistMapper.findAll();
+        map.addAttribute("list", data);
+        return "user";
+    }
 }

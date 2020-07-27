@@ -9,15 +9,15 @@ import com.example.demo.pojo.NavList;
 
 @Mapper
 public interface NavListMapper {
-	
-	List<NavList> findAll();
-	
-	NavList findById(@Param("id") int id);
-	
-	int insert(@Param("name") String name, @Param("type") String type);
 
-	void update(NavList navlist);
+    List<NavList> findAll();
 
-	void delete(int id);
+    NavList findById(@Param("id") int id);
+
+    int insert(@Param("name") String name, @Param("type") String type);
+
+    void update(NavList navlist);
+
+    void delete(int id);
 
 }

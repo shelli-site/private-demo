@@ -12,38 +12,38 @@ import com.example.demo.domain.User;
 
 /*
  * User Repository 接口的实现
- * 
+ *
  * */
 @Repository
 public class UserRepositoryImpl implements UserRepository {
-	// 计数，自增
-	private static AtomicLong counter = new AtomicLong();
-	private final ConcurrentMap<Long, User> userMap = new ConcurrentHashMap<>();
+    // 计数，自增
+    private static AtomicLong counter = new AtomicLong();
+    private final ConcurrentMap<Long, User> userMap = new ConcurrentHashMap<>();
 
-	@Override
-	public User saveOrUpdataUser(User user) {
-		Long id = user.getId();
-		if (id == null) {// 新建
-			id = counter.incrementAndGet();
-			user.setId(id);
-		}
-		this.userMap.put(id, user);
-		return user;
-	}
+    @Override
+    public User saveOrUpdataUser(User user) {
+        Long id = user.getId();
+        if (id == null) {// 新建
+            id = counter.incrementAndGet();
+            user.setId(id);
+        }
+        this.userMap.put(id, user);
+        return user;
+    }
 
-	@Override
-	public void deleteUser(Long id) {
-		this.userMap.remove(id);
-	}
+    @Override
+    public void deleteUser(Long id) {
+        this.userMap.remove(id);
+    }
 
-	@Override
-	public User getUserById(Long id) {
-		return this.userMap.get(id);
-	}
+    @Override
+    public User getUserById(Long id) {
+        return this.userMap.get(id);
+    }
 
-	@Override
-	public List<User> listUser() {
-		return new ArrayList<User>(this.userMap.values());
-	}
+    @Override
+    public List<User> listUser() {
+        return new ArrayList<User>(this.userMap.values());
+    }
 
 }

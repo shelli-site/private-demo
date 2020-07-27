@@ -16,6 +16,7 @@ import java.lang.annotation.*;
 public @interface Log {
     /**
      * 日志描述，这里使用了@AliasFor 别名。spring提供的
+     *
      * @return
      */
     @AliasFor("desc")
@@ -23,6 +24,7 @@ public @interface Log {
 
     /**
      * 日志描述
+     *
      * @return
      */
     @AliasFor("value")
@@ -30,6 +32,7 @@ public @interface Log {
 
     /**
      * 是否不记录日志
+     *
      * @return
      */
     boolean ignore() default false;

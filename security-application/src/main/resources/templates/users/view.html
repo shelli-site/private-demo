@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head th:replace="~{fragments/header::header}">
 </head>
 <body>
-	<div class="container">
-		<div class="jumbotron">
-			<h3 th:text="${userModel.title}">TITLE</h3>
-			<div>
-				<p>
-					<strong>ID:</strong><span th:text="${userModel.user.id}"></span>
-				</p>
-				<p>
-					<strong>Name:</strong><span th:text="${userModel.user.name}"></span>
-				</p>
-				<p>
-					<strong>Email:</strong><span th:text="${userModel.user.email}"></span>
-				</p>
-			</div>
-			<div>
-				<a class="btn btn-default"
-					th:href="@{'/users/delete/'+ ${userModel.user.id}}">刪除</a> <a
-					class="btn btn-default"
-					th:href="@{'/users/modify/'+ ${userModel.user.id}}">修改</a>
-			</div>
-		</div>
-	</div>
-	<div th:replace="~{fragments/footer::footer}"></div>
+<div class="container">
+    <div class="jumbotron">
+        <h3 th:text="${userModel.title}">TITLE</h3>
+        <div>
+            <p>
+                <strong>ID:</strong><span th:text="${userModel.user.id}"></span>
+            </p>
+            <p>
+                <strong>Name:</strong><span th:text="${userModel.user.name}"></span>
+            </p>
+            <p>
+                <strong>Email:</strong><span th:text="${userModel.user.email}"></span>
+            </p>
+        </div>
+        <div>
+            <a class="btn btn-default"
+               th:href="@{'/users/delete/'+ ${userModel.user.id}}">刪除</a> <a
+                class="btn btn-default"
+                th:href="@{'/users/modify/'+ ${userModel.user.id}}">修改</a>
+        </div>
+    </div>
+</div>
+<div th:replace="~{fragments/footer::footer}"></div>
 </body>
 </html>

@@ -6,8 +6,8 @@ import com.example.demo.domain.User;
 
 /*
  * User Repository 接口
- * 
+ *
  * */
-public interface UserRepository extends CrudRepository<User,Long>{
+public interface UserRepository extends CrudRepository<User, Long> {
 
 }

@@ -24,21 +24,21 @@ public class MapTest {
         System.out.println("-------foreach获取Map中所有的键:------");
         Set<String> keys = map.keySet();
         for (String key : keys) {
-            System.out.print(key+"  ");
+            System.out.print(key + "  ");
         }
         System.out.println();//换行
         // 2.获取Map中所有值
         System.out.println("-------foreach获取Map中所有的值:------");
         Collection<String> values = map.values();
         for (String value : values) {
-            System.out.print(value+"  ");
+            System.out.print(value + "  ");
         }
         System.out.println();//换行
         // 3.得到key的值的同时得到key所对应的值
         System.out.println("-------得到key的值的同时得到key所对应的值:-------");
         Set<String> keys2 = map.keySet();
         for (String key : keys2) {
-            System.out.print(key + "：" + map.get(key)+"   ");
+            System.out.print(key + "：" + map.get(key) + "   ");
 
         }
         /**
@@ -52,19 +52,19 @@ public class MapTest {
         for (java.util.Map.Entry<String, String> entry : entrys) {
             System.out.println(entry.getKey() + "--" + entry.getValue());
         }
-        
+
         /**
          * HashMap其他常用方法
          */
-        System.out.println("after map.size()："+map.size());
-        System.out.println("after map.isEmpty()："+map.isEmpty());
+        System.out.println("after map.size()：" + map.size());
+        System.out.println("after map.isEmpty()：" + map.isEmpty());
         System.out.println(map.remove("san"));
-        System.out.println("after map.remove()："+map);
-        System.out.println("after map.get(si)："+map.get("si"));
-        System.out.println("after map.containsKey(si)："+map.containsKey("si"));
-        System.out.println("after containsValue(李四)："+map.containsValue("李四"));
+        System.out.println("after map.remove()：" + map);
+        System.out.println("after map.get(si)：" + map.get("si"));
+        System.out.println("after map.containsKey(si)：" + map.containsKey("si"));
+        System.out.println("after containsValue(李四)：" + map.containsValue("李四"));
         System.out.println(map.replace("si", "李四2"));
-        System.out.println("after map.replace(si, 李四2):"+map);
+        System.out.println("after map.replace(si, 李四2):" + map);
     }
 
 }

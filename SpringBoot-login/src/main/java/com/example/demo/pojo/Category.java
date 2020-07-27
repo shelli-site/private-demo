@@ -2,68 +2,69 @@ package com.example.demo.pojo;
 
 public class Category {
 
-	private int id;
-	private String username;
-	private String password;
-	private String name;
-	private int age;
+    private int id;
+    private String username;
+    private String password;
+    private String name;
+    private int age;
 
-	public Category(String username,String password) {
-		this.username = username;
-		this.password = password;
-	}
-	public Category(Integer id,String username,String password,String name,Integer age) {
-		this.id = id.intValue();
-		this.username = username;
-		this.password = password;
-		this.name = name;
-		this.age = age.intValue();
-	}
-	
-	public int getId() {
-		return id;
-	}
+    public Category(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
 
-	public String getUsername() {
-		return username;
-	}
+    public Category(Integer id, String username, String password, String name, Integer age) {
+        this.id = id.intValue();
+        this.username = username;
+        this.password = password;
+        this.name = name;
+        this.age = age.intValue();
+    }
 
-	public String getPassword() {
-		return password;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getUsername() {
+        return username;
+    }
 
-	public int getAge() {
-		return age;
-	}
+    public String getPassword() {
+        return password;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
+    public int getAge() {
+        return age;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-	public void setAge(int age) {
-		this.age = age;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	@Override
-	public String toString() {
+    public void setName(String name) {
+        this.name = name;
+    }
 
-		return id + " User " + username + " is " + name + " password: " + password;
-	}
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+
+        return id + " User " + username + " is " + name + " password: " + password;
+    }
 
 }

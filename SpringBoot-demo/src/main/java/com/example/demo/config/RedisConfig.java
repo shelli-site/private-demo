@@ -37,7 +37,6 @@ public class RedisConfig extends CachingConfigurerSupport {
      * Spring Data JPA为我们提供了下面的Serializer：
      * GenericToStringSerializer、Jackson2JsonRedisSerializer、JacksonJsonRedisSerializer、JdkSerializationRedisSerializer、OxmSerializer、StringRedisSerializer。
      * 在此我们将自己配置RedisTemplate并定义Serializer。
-     *
      */
 
 // 存入redis时，默认使用的是JdkSerializationRedisSerializer，使得存入的数据全部序列化了，所需自定义一个RedisTemplate，使用其他序列化方式
@@ -71,9 +70,6 @@ public class RedisConfig extends CachingConfigurerSupport {
 //                .build();
 //        return cacheManager;
 //    }
-
-
-
     @Bean
     @Primary//当有多个管理器的时候，必须使用该注解在一个管理器上注释：表示该管理器为默认的管理器
     public CacheManager cacheManager(RedisConnectionFactory connectionFactory) {
@@ -91,7 +87,7 @@ public class RedisConfig extends CachingConfigurerSupport {
         //序列化方式2
         FastJsonRedisSerializer<Object> fastJsonRedisSerializer = new FastJsonRedisSerializer<>(Object.class);//JSONObject
         RedisSerializationContext.SerializationPair<Object> pair = RedisSerializationContext.SerializationPair.fromSerializer(fastJsonRedisSerializer);
-        RedisCacheConfiguration defaultCacheConfig=RedisCacheConfiguration.defaultCacheConfig().serializeValuesWith(pair);
+        RedisCacheConfiguration defaultCacheConfig = RedisCacheConfiguration.defaultCacheConfig().serializeValuesWith(pair);
 
         //序列化方式3
         //Jackson2JsonRedisSerializer serializer=new Jackson2JsonRedisSerializer(Object.class);
@@ -119,12 +115,13 @@ public class RedisConfig extends CachingConfigurerSupport {
 
 
     /**
-     *  设置 redis 数据默认过期时间
-     *  设置@cacheable 序列化方式
+     * 设置 redis 数据默认过期时间
+     * 设置@cacheable 序列化方式
+     *
      * @return
      */
     @Bean
-    public RedisCacheConfiguration redisCacheConfiguration(){
+    public RedisCacheConfiguration redisCacheConfiguration() {
         FastJsonRedisSerializer<Object> fastJsonRedisSerializer = new FastJsonRedisSerializer<>(Object.class);
         RedisCacheConfiguration configuration = RedisCacheConfiguration.defaultCacheConfig();
         configuration = configuration.serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(fastJsonRedisSerializer)).entryTtl(Duration.ofDays(30));
@@ -164,8 +161,6 @@ public class RedisConfig extends CachingConfigurerSupport {
 //            }
 //        };
 //    }
-
-
 
 
 }

@@ -9,19 +9,19 @@ import com.example.demo.pojo.Category;
 
 @Mapper
 public interface CategoryMapper {
-	
-	Category findByName(@Param("name") String name);
-	
-	Category findByUsername(@Param("username") String username);
-	
-	Category findById(@Param("id") int id);
 
-	List<Category> findAll();
+    Category findByName(@Param("name") String name);
 
-	int insert(Category category);
+    Category findByUsername(@Param("username") String username);
 
-	void update(Category category);
+    Category findById(@Param("id") int id);
 
-	void delete(int id);
+    List<Category> findAll();
+
+    int insert(Category category);
+
+    void update(Category category);
+
+    void delete(int id);
 
 }

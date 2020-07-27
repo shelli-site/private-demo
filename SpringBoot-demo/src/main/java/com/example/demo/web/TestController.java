@@ -24,7 +24,7 @@ public class TestController {
     @Autowired
     StringRedisTemplate redisTemplate;
 
-    @GetMapping("redis"+"/set/{key}/{value}")
+    @GetMapping("redis" + "/set/{key}/{value}")
     @ApiOperation(value = "设置缓存")
     @Log(value = "请求了redis-set方法")
     public Result set(@PathVariable("key") String key, @PathVariable("value") String value) {
@@ -33,7 +33,7 @@ public class TestController {
         return Result.success(key + ":" + value);
     }
 
-    @GetMapping("redis"+"/get/{key}")
+    @GetMapping("redis" + "/get/{key}")
     @ApiOperation(value = "根据key获取缓存")
     @Log(value = "请求了redis-get方法")
     public Result get(@PathVariable("key") String key) {
