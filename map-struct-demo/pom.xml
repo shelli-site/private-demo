@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>demo</artifactId>
+    <artifactId>map-struct-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>MapStruct</name>
+    <name>map-struct-demo</name>
     <description>MapStruct Demo project for Spring Boot</description>
 
     <properties>
