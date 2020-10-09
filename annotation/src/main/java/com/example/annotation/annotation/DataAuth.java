@@ -33,7 +33,7 @@ public @interface DataAuth {
      * @return
      */
 
-    String columnAlias() default "org_id";
+    String columnName() default "org_id";
 
 
 }

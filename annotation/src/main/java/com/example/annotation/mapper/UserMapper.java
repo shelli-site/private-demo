@@ -9,6 +9,6 @@ import com.example.annotation.domain.VO.UserVO;
 import org.apache.ibatis.annotations.Param;
 
 public interface UserMapper extends BaseMapper<User> {
-    @DataAuth(columnAlias = "use_id")
+    @DataAuth(columnName = "use_id")
     IPage<User> getAll(@Param("query") UserVO userVO, @Param("page") Page page);
 }

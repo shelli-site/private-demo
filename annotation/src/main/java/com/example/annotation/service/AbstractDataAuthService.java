@@ -18,9 +18,9 @@ public abstract class AbstractDataAuthService {
      * 默认查询sql,根据角色不同追加不同业务查询条件
      */
     public String splicingSql(String sql, DataAuth action) {
-        String tableAlias = action.tableAlias(), columnAlias = action.columnAlias(), result;
+        String tableAlias = action.tableAlias(), columnName = action.columnName(), result;
         if (!StringUtils.isEmpty(tableAlias)) {
-            columnAlias = tableAlias + "." + columnAlias;
+            columnName = tableAlias + "." + columnName;
         }
         // 获取权限字段
         List<String> authIds = new ArrayList<>();
@@ -33,7 +33,7 @@ public abstract class AbstractDataAuthService {
             result = String.format("SELECT %s.* FROM ( %s ) %s WHERE FALSE", tableAlias, sql, tableAlias);
         } else {
             result = String.format("SELECT %s.* FROM ( %s ) %s WHERE %s IN ( %s )",
-                    tableAlias, sql, tableAlias, columnAlias, ArrayUtil.join(authIds.toArray(), ","));
+                    tableAlias, sql, tableAlias, columnName, ArrayUtil.join(authIds.toArray(), ","));
         }
         return result;
     }
