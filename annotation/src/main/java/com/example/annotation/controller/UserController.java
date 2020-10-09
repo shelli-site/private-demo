@@ -1,5 +1,6 @@
 package com.example.annotation.controller;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.annotation.domain.User;
 import com.example.annotation.domain.VO.UserVO;
 import com.example.annotation.service.UserService;
@@ -22,4 +23,11 @@ public class UserController {
     public List<User> getList(UserVO userVO) {
         return userService.getUsers(userVO);
     }
+
+    @GetMapping("/user_all")
+    public List<User> getList() {
+        return userService.getUsersAll();
+    }
+
+
 }

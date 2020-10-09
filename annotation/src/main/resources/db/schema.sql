@@ -1,13 +1,13 @@
-create table if not exists USER
+create table if not exists user
 (
-    USE_ID        int not null primary key auto_increment,
-    USE_NAME      varchar(100),
-    USE_SEX       varchar(1),
-    USE_AGE       NUMBER(3),
-    USE_ID_NO     VARCHAR(18),
-    USE_PHONE_NUM VARCHAR(11),
-    USE_EMAIL     VARCHAR(100),
-    CREATE_TIME   DATE,
-    MODIFY_TIME   DATE,
-    USE_STATE     VARCHAR(1)
+    use_id        int not null primary key auto_increment,
+    use_name      varchar(100),
+    use_sex       varchar(1),
+    use_age       INT(3),
+    use_id_no     VARCHAR(18),
+    use_phone_num VARCHAR(11),
+    use_email     VARCHAR(100),
+    create_time   DATETIME,
+    modify_time   DATETIME,
+    use_state     VARCHAR(1)
 );

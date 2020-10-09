@@ -11,39 +11,39 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @ToString
-@TableName(value = "USER")
+@TableName(value = "user")
 public class User {
-    @TableId(value = "USE_ID", type = IdType.AUTO)
+    @TableId(value = "use_id", type = IdType.AUTO)
     private Integer useId;
 
-    @TableField(value = "USE_NAME")
+    @TableField(value = "use_name")
     private String useName;
 
-    @TableField(value = "USE_SEX")
+    @TableField(value = "use_sex")
     private String useSex;
 
-    @TableField(value = "USE_AGE")
+    @TableField(value = "use_age")
     private Integer useAge;
 
-    @TableField(value = "USE_ID_NO")
+    @TableField(value = "use_id_no")
     private String useIdNo;
 
-    @TableField(value = "USE_PHONE_NUM")
+    @TableField(value = "use_phone_num")
     private String usePhoneNum;
 
-    @TableField(value = "USE_EMAIL")
+    @TableField(value = "use_email")
     private String useEmail;
 
     @JsonIgnore
-    @TableField(value = "CREATE_TIME", fill = FieldFill.INSERT)
+    @TableField(value = "create_time", fill = FieldFill.INSERT)
     private LocalDate createTime;
 
     @JsonIgnore
-    @TableField(value = "MODIFY_TIME", fill = FieldFill.INSERT_UPDATE)
+    @TableField(value = "modify_time", fill = FieldFill.INSERT_UPDATE)
     private LocalDate modifyTime;
 
     @JsonIgnore
-    @TableField(value = "USE_STATE")
+    @TableField(value = "use_state")
     @Version
     private String useState;
 }

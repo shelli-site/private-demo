@@ -1,23 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.annotation.mapper.UserMapper">
-  <resultMap id="BaseResultMap" type="com.example.annotation.domain.User">
-    <!--@mbg.generated-->
-    <!--@Table PUBLIC."USER"-->
-    <id column="USE_ID" jdbcType="INTEGER" property="useId" />
-    <result column="USE_NAME" jdbcType="VARCHAR" property="useName" />
-    <result column="USE_SEX" jdbcType="VARCHAR" property="useSex" />
-    <result column="USE_AGE" jdbcType="DECIMAL" property="useAge" />
-    <result column="USE_ID_NO" jdbcType="VARCHAR" property="useIdNo" />
-    <result column="USE_PHONE_NUM" jdbcType="VARCHAR" property="usePhoneNum" />
-    <result column="USE_EMAIL" jdbcType="VARCHAR" property="useEmail" />
-    <result column="CREATE_TIME" jdbcType="DATE" property="createTime" />
-    <result column="MODIFY_TIME" jdbcType="DATE" property="modifyTime" />
-    <result column="USE_STATE" jdbcType="VARCHAR" property="useState" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    <!--@mbg.generated-->
-    USE_ID, USE_NAME, USE_SEX, USE_AGE, USE_ID_NO, USE_PHONE_NUM, USE_EMAIL, CREATE_TIME, 
-    MODIFY_TIME, USE_STATE
-  </sql>
+    <resultMap id="BaseResultMap" type="com.example.annotation.domain.User">
+        <!--@mbg.generated-->
+        <!--@Table PUBLIC."USER"-->
+        <id column="USE_ID" jdbcType="INTEGER" property="useId"/>
+        <result column="use_name" jdbcType="VARCHAR" property="useName"/>
+        <result column="use_sex" jdbcType="VARCHAR" property="useSex"/>
+        <result column="use_age" jdbcType="DECIMAL" property="useAge"/>
+        <result column="use_id_no" jdbcType="VARCHAR" property="useIdNo"/>
+        <result column="use_phone_num" jdbcType="VARCHAR" property="usePhoneNum"/>
+        <result column="use_email" jdbcType="VARCHAR" property="useEmail"/>
+        <result column="create_time" jdbcType="DATE" property="createTime"/>
+        <result column="modify_time" jdbcType="DATE" property="modifyTime"/>
+        <result column="use_state" jdbcType="VARCHAR" property="useState"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        use_id, use_name, use_sex, use_age, use_id_no, use_phone_num, use_email, create_time,
+        modify_time, use_state
+    </sql>
+
+    <select id="getAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List">
+        </include>
+        from user
+        <where>
+            <if test="query.useName != null and query.useName != ''">
+                use_name like concat('%', #{query.useName}, '%')
+            </if>
+        </where>
+    </select>
 </mapper>
