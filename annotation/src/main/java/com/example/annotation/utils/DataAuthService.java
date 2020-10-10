@@ -1,8 +1,9 @@
-package com.example.annotation.service;
+package com.example.annotation.utils;
 
 import cn.hutool.core.util.ArrayUtil;
 import com.example.annotation.annotation.DataAuth;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
@@ -13,7 +14,8 @@ import java.util.List;
  * @create 2020/10/09 10:59
  */
 @Slf4j
-public abstract class AbstractDataAuthService {
+@Service
+public class DataAuthService {
     /**
      * 默认查询sql,根据角色不同追加不同业务查询条件
      */

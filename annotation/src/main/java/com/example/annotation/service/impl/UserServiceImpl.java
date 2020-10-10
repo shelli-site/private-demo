@@ -3,7 +3,7 @@ package com.example.annotation.service.impl;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.example.annotation.annotation.utils.QueryHelp;
+import com.example.annotation.utils.QueryHelp;
 import com.example.annotation.domain.User;
 import com.example.annotation.domain.VO.UserVO;
 import com.example.annotation.mapper.UserMapper;

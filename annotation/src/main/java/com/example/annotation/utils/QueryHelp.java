@@ -13,7 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package com.example.annotation.annotation.utils;
+package com.example.annotation.utils;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.ObjectUtil;
@@ -146,7 +146,6 @@ public class QueryHelp {
 
     private static String toSymbolCase(String name) {
         return StrUtil.toSymbolCase(name, '_');
-
     }
 
     public static <Q> Wrapper<Q> createQueryWra(Q query) {
