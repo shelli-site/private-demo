@@ -27,7 +27,7 @@ public @interface DataAuth {
 
     String tableAlias() default "old_sql";
 
-   /**
+    /**
      * 列名
      *
      * @return
